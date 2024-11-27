@@ -10,8 +10,8 @@ const router = express.Router();
 
 router.post("/", createContent);
 router.get("/", getAllContent);
+router.get("/content", getContent);
 router.route("/:id").put(updateContent).get(getContentByUser);
 router.delete("/:id", deleteContent);
-router.get("/content",getContent)
 
 export default router;
