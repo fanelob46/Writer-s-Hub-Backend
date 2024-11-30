@@ -3,8 +3,9 @@ import mongoose from 'mongoose';
 const ContentSchema = new mongoose.Schema(
   {
     userId: {
-      type: String,
-      required: true,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
     },
     username: {
       type: String,
@@ -15,7 +16,7 @@ const ContentSchema = new mongoose.Schema(
       required: true,
     },
     genres: {
-      type: [String], 
+      type: [String],
       default: [],
     },
     likesCount: {
@@ -24,11 +25,11 @@ const ContentSchema = new mongoose.Schema(
     },
     commentsCount: {
       type: Number,
-      default: 0, 
+      default: 0,
     },
   },
   {
-    timestamps: true, 
+    timestamps: true,
   }
 );
 
