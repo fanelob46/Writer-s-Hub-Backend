@@ -1,5 +1,6 @@
 import User from "../../models/userModel.js";
 import asyncHandler from "express-async-handler";
+import generateToken from "../../utils/generateToken.js";
 
 // @desc user register
 // @route POST users/
@@ -14,9 +15,10 @@ export const registerUser = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("User already exists");
   }
-  
+
   const createdUser = await User.create(registerFormData);
   if (createdUser) {
+    generateToken(res,createdUser._id )
     res.status(201).json({
       success: true,
       message: "Successfully registered to Writers HUb. Welcome!",
