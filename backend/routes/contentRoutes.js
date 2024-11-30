@@ -13,8 +13,7 @@ router.post("/", createContent);
 router.get("/", getAllContent);
 router.get('/content/:id',);
 router.get('/user', protect, getContentByUser);
-router.route("/:id")
-  .put(updateContent);
+router.put("/:id", updateContent);
 
 
 export default router;
