@@ -6,7 +6,7 @@ export const getUserProfile = async (req, res) => {
   if (user) {
     res.json({
       _id: user._id,
-      name: user.firstName,
+      firstName: user.firstName,
       userName: user.username,
       email: user.email,
     });
