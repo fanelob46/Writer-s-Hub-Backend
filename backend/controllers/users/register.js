@@ -18,11 +18,12 @@ export const registerUser = asyncHandler(async (req, res) => {
 
   const createdUser = await User.create(registerFormData);
   if (createdUser) {
-    generateToken(res,createdUser._id )
+    generateToken(res, createdUser._id);
+    const { password, ...userWithoutPassword } = createdUser.toObject();
     res.status(201).json({
       success: true,
       message: "Successfully registered to Writers HUb. Welcome!",
-      data: createdUser,
+      data: userWithoutPassword,
     });
   } else {
     res.status(400);

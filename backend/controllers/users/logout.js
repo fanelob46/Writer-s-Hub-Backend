@@ -1,3 +1,6 @@
+// @desc user logout
+// @route POST users/logout
+// access PRIVATE
 export const logoutUser = async (req, res) => {
   res.cookie("jwt", "", {
     httpOnly: true,
