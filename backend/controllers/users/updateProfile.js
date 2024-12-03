@@ -1,6 +1,7 @@
 import User from "../../models/userModel.js";
+import asyncHandler from "express-async-handler";
 
-export const updateProfile = async (req,res) => {
+export const updateProfile = asyncHandler ( async (req,res) => {
      const user = await User.findById(req.user._id);
 
      if (user) {
@@ -22,4 +23,4 @@ export const updateProfile = async (req,res) => {
        res.status(404);
        throw new Error("User not found");
      }
-}
+})

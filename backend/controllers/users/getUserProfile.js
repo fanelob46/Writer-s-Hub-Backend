@@ -1,17 +1,19 @@
 import User from "../../models/userModel.js";
+import asyncHandler from "express-async-handler"
 
-export const getUserProfile = async (req, res) => {
+export const getUserProfile = asyncHandler( async (req, res) => {
   const user = await User.findById(req.user._id);
+
+  const { password, ...userWithoutPassword } = user.toObject();
 
   if (user) {
     res.json({
-      _id: user._id,
-      firstName: user.firstName,
-      userName: user.username,
-      email: user.email,
+      success: true,
+      message: "user profile info",
+      data: userWithoutPassword,
     });
   } else {
     res.status(404);
     throw new Error("User not found");
   }
-};
+});
