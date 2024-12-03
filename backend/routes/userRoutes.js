@@ -24,4 +24,6 @@ router.post("/logout", logoutUser);
 //delete user
 router.delete("/:id", protect, deleteUser);
 
+
+
 export default router;

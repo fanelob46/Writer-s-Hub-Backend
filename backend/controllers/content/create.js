@@ -6,7 +6,7 @@ export const createContent = asyncHandler(async (req, res) => {
 
   const { _id, username, firstName, lastName } = req.user;
 
-  if (!_id || !username || !firstName || !lastName || !genres) {
+  if (!title || !image || !description || !type || !genres) {
     return res
       .status(400)
       .json({ success: false, message: "Please fill all the required fields" });
@@ -22,7 +22,7 @@ export const createContent = asyncHandler(async (req, res) => {
     description,
     type,
   });
-  
+console.log(newContent)
   try {
     await newContent.save();
     return res
