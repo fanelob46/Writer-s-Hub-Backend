@@ -6,7 +6,13 @@ export const getAllContent = expressAsyncHandler(async (req, res) => {
   const limit = 20;
   const skip = (page - 1) * limit;
 
-  const contents = await Content.find({}).skip(skip).limit(limit);
+  const contents = await Content.find({})
+    .populate({
+      path: 'userId',
+      select: 'username firstName lastName'
+    })
+    .skip(skip)
+    .limit(limit);
 
   const totalContents = await Content.countDocuments({});
 
