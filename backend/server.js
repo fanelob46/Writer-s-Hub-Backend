@@ -6,6 +6,7 @@ import { notFound, errorHandler } from "./middleware/errorMiddleWare.js";
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js";
 import contentRoutes from "./routes/contentRoutes.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -17,7 +18,8 @@ app.use(cors({
   credentials: true,
 }));
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser()); 
+app.use(cookieParser());
+app.use(cors());
 
 app.use("/api/users", userRoutes);
 app.use("/api/content", contentRoutes);
