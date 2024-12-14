@@ -6,7 +6,6 @@ import { notFound, errorHandler } from "./middleware/errorMiddleWare.js";
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js";
 import contentRoutes from "./routes/contentRoutes.js";
-import cors from "cors";
 
 dotenv.config();
 
