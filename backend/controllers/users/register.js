@@ -16,7 +16,7 @@ export const registerUser = asyncHandler(async (req, res) => {
     throw new Error("User already exists");
   }
 
-  const createdUser = await User.create(registerFormData);
+  const createdUser = await User.create({role:'learner',...registerFormData});
   if (createdUser) {
     generateToken(res, createdUser._id);
     const { password, ...userWithoutPassword } = createdUser.toObject();
