@@ -6,6 +6,7 @@ import { notFound, errorHandler } from "./middleware/errorMiddleWare.js";
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js";
 import contentRoutes from "./routes/contentRoutes.js";
+import genreRoutes from './routes/genreRoutes.js';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
 app.use("/api/content", contentRoutes);
+app.use("/api/genres", genreRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
