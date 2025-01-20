@@ -35,6 +35,10 @@ const ContentSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
+    text: {
+      type: String,
+      required: true,
+    },
     likesCount: {
       type: Number,
       default: 0,
