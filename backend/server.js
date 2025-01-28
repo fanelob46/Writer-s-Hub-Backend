@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import userRoutes from "./routes/userRoutes.js";
 import contentRoutes from "./routes/contentRoutes.js";
 import genreRoutes from './routes/genreRoutes.js';
+import typeRoutes from './routes/typeRoutes.js';
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.use(cookieParser());
 app.use("/api/users", userRoutes);
 app.use("/api/content", contentRoutes);
 app.use("/api/genres", genreRoutes);
+app.use("/api/types", typeRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
