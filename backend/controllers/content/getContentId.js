@@ -22,7 +22,20 @@ export const getContentId = async (req, res) => {
         .status(404)
         .json({ success: false, message: "Content not found" });
     }
-    res.status(200).json({ data: content });
+    res.status(200).json({
+      _id: content._id,
+      userId: content.userId,
+      userName: content.username,
+      author: content.author,
+      title: content.title,
+      description: content.description,
+      image: content.image,
+      type: content.type,
+      genres: content.genres,
+      likes: content.likesCount,
+      comments: content.commentsCount,
+      text: content.text
+    });
   } catch (error) {
     console.log("Error fetching content:", error.message);
     res.status(500).json({ success: false, message: "Server error" });
