@@ -5,7 +5,9 @@ export const getGenres = asyncHandler(async (req, res) => {
   const genres = await Genre.find({});
 
   if (genres.length > 0) {
-    res.status(200).json({ genres });
+    res.status(200).json({
+      data: genres
+    });
   } else {
     res.status(404);
     throw new Error('No Genres');
