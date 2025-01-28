@@ -12,10 +12,15 @@ export const getContentId = async (req, res) => {
 
 
   try {
-    const content = await Content.findById(id).populate({
-      path: 'userId',
-      select: 'username firstName lastName'
-    });
+    const content = await Content.findById(id)
+      .populate({
+        path: 'userId',
+        select: 'username firstName lastName'
+      })
+      .populate({
+        path: 'genres',
+        select: 'name'
+      });
 
     if (!content) {
       return res

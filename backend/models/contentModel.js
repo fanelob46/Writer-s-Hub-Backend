@@ -32,8 +32,8 @@ const ContentSchema = new mongoose.Schema(
       required: true,
     },
     genres: {
-      type: [String],
-      default: [],
+      type: [mongoose.Schema.Types.ObjectId],
+      ref: 'Genre',
     },
     text: {
       type: String,
