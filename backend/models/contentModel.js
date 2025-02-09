@@ -4,8 +4,8 @@ const ContentSchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
+      ref: "User",
+      required: true,
     },
     username: {
       type: String,
@@ -33,11 +33,11 @@ const ContentSchema = new mongoose.Schema(
     },
     genres: {
       type: [mongoose.Schema.Types.ObjectId],
-      ref: 'Genre',
+      ref: "Genre",
     },
     text: {
       type: String,
-      required: true,
+      // required: true,
     },
     likesCount: {
       type: Number,
